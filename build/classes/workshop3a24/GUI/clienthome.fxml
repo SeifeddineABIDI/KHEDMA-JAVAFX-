@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="727.0" prefWidth="1206.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="workshop3a24.GUI.ClienthomeController">
+   <children>
+      <VBox prefHeight="727.0" prefWidth="117.0" style="-fx-background-color: #00B4D8;">
+         <children>
+              <ImageView fitHeight="100" fitWidth="100.0" layoutX="500.0" layoutY="50.0" x="500.0" y="50.0">
+                            <Image url="@/images/logo5edma.png" />
+                        </ImageView>
+            <Button mnemonicParsing="false" onAction="#showAddProjectPane" prefHeight="93.0" prefWidth="288.0">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
+                     <Image url="@/images/add.png" />
+                  </ImageView>
+               </graphic>
+                  <style>
+      -fx-background-color: transparent;
+      -fx-background-insets: 0, 0;
+      -fx-background-radius: 0;
+      -fx-padding: 0;
+      -fx-background-size: 0;
+      -fx-border-color: transparent;
+   </style>
+
+            </Button>
+            <Button mnemonicParsing="false" onAction="#showViewProjectsPane" prefHeight="93.0" prefWidth="288.0">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
+                     <Image url="@/images/search.png" />
+                  </ImageView>
+               </graphic>
+                  <style>
+      -fx-background-color: transparent;
+      -fx-background-insets: 0, 0;
+      -fx-background-radius: 0;
+      -fx-padding: 0;
+      -fx-background-size: 0;
+      -fx-border-color: transparent;
+   </style>
+
+            </Button>
+            <Button mnemonicParsing="false" onAction="#showModifyProjectPane" prefHeight="93.0" prefWidth="288.0">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
+                     <Image url="@/images/edit.png" />
+                  </ImageView>
+               </graphic>
+                  <style>
+      -fx-background-color: transparent;
+      -fx-background-insets: 0, 0;
+      -fx-background-radius: 0;
+      -fx-padding: 0;
+      -fx-background-size: 0;
+      -fx-border-color: transparent;
+   </style>
+
+            </Button>                     
+         </children>
+      </VBox>
+      <StackPane fx:id="stackPane" layoutX="117.0" minWidth="-Infinity" prefHeight="727.0" prefWidth="1088.0">
+         <children>
+ <StackPane fx:id="addProjectPane" alignment="CENTER" prefHeight="727.0" prefWidth="745.0" style="-fx-background-color: #90E0EF;" visible="false">
+    <VBox spacing="20">
+        <Label style="-fx-font-size: 24px;" text="Add Project" />
+        <TextField fx:id="projectNameField" minWidth="-Infinity" prefHeight="25.0" prefWidth="300.0" promptText="Project Name" />
+        <TextField fx:id="freelancerField" minWidth="-Infinity" prefWidth="300.0" promptText="Freelancer" />
+        <TextField fx:id="clientField" minWidth="-Infinity" prefWidth="300.0" promptText="Client" />
+        <TextField fx:id="domaineField" minWidth="-Infinity" prefWidth="300.0" promptText="Domaine" />
+        <Button fx:id="addprojectbutton" onAction="#addproject" prefHeight="25.0" prefWidth="108.0" text="Add Project" />
+    </VBox>
+</StackPane>
+           <StackPane fx:id="viewProjectsPane" minWidth="-Infinity" prefHeight="727.0" prefWidth="1044.0" style="-fx-background-color:#90E0EF;" visible="false">
+    <children>
+        <VBox alignment="CENTER" minWidth="-Infinity" prefHeight="727.0" prefWidth="1074.0" spacing="10.0">
+            <TableView fx:id="projectsTable" prefHeight="400.0" prefWidth="868.0">
+                <columns>
+                    <TableColumn fx:id="IDColumn" prefWidth="75.0" text="ID" />
+                    <TableColumn fx:id="projectNameColumn" prefWidth="200.0" text="Project Name" />
+                    <TableColumn fx:id="domainColumn" prefWidth="150.0" text="Domain" />
+                    <TableColumn fx:id="FreelancerColumn" prefWidth="150.0" text="Freelancer" />
+                    <TableColumn fx:id="ClientrColumn" prefWidth="150.0" text="Client" />
+                    <TableColumn fx:id="TaskColumn" prefWidth="100.0" text="View Tasks" />
+                    <TableColumn fx:id="deleteColumn" prefWidth="75.0" text="Delete" />
+                    <TableColumn fx:id="addTaskColumn" prefWidth="100.0" text="Add Task" />
+                </columns>
+            </TableView>
+            <Button fx:id="refreshbutton" mnemonicParsing="false" onAction="#refreshbutton" text="REFRESH" />
+        </VBox>
+    </children>
+</StackPane>
+ <StackPane fx:id="modifyProjectPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #90E0EF;" visible="false">
+    <VBox alignment="CENTER" spacing="10.0">
+        <Label style="-fx-font-size: 24px;" text="Modify Project" />
+        <HBox alignment="CENTER" spacing="10.0">
+            <Label text="Project ID:" />
+            <ComboBox fx:id="projectIdComboBox" prefWidth="150.0" />
+        </HBox>
+        <VBox alignment="CENTER" spacing="10.0">
+            <Label style="-fx-font-size: 16px;" text="Modify Project Details" />
+            <HBox alignment="CENTER" spacing="10.0">
+                <Label text="New Project Name:" />
+                <TextField fx:id="modifyProjectNameTextField" />
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+                <Label text="New Freelancer:" />
+                <TextField fx:id="modifyProjectFreelancerTextField" />
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+                <Label text="New Domain:" />
+                <TextField fx:id="modifyProjectDomainTextField" />
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+                <Label text="New Client:" />
+                <TextField fx:id="modifyProjectClientTextField" />
+            </HBox>
+            <Button fx:id="modifyProjectButton" onAction="#modifyProjectButtonClicked" text="Modify Project" />
+        </VBox>
+    </VBox>
+</StackPane>           
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
