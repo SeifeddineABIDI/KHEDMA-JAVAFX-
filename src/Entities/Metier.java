@@ -5,32 +5,37 @@
  */
 package Entities;
 
+
+
 /**
  *
  * @author Safe
  */
 public class Metier {
-    protected String nom,type,description;
-    protected int id;
+    private String nom,type,description;
+    private int id;
+    private String image;
     
     public Metier(){};
     public Metier(int id){
     this.id = id;
     }
-    public Metier(String nom, String type, String description) {
+    public Metier(String nom, String type, String description,String image) {
         this.nom = nom;
         this.type = type;
         this.description = description;
+        this.image =image;
     }
      public Metier(String nom) {
         this.nom = nom;
        
     }
-     public Metier(int id,String nom, String type, String description) {
+     public Metier(int id,String nom, String type, String description,String image) {
         this.id = id ;
         this.nom = nom;
         this.type = type;
         this.description = description;
+        this.image =image;
     }
     public void setId(int id) {
         this.id = id;
@@ -64,9 +69,18 @@ public class Metier {
     public String getDescription() {
         return description;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
     @Override
     public String toString() {
-        return "Metier{" + "nom=" + nom + ", type=" + type + ", description=" + description + ", id=" + id + '}';
+        return "Metier{"+"id=" + id  + ", nom=" + nom + ", type=" + type + ", description=" + description + ", image=" + image +  '}';
     }
     
 }

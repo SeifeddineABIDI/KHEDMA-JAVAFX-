@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/khedma/Khedma.java</file>
             <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/Services/ServiceSousMetier.java</file>
-            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/Entities/SousMetier.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/GUI/MetierController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/GUI/SousMetierController.java</file>
             <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/Services/ServiceMetier.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/GUI/FXMain.java</file>
             <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/Entities/Metier.java</file>
         </group>
     </open-files>

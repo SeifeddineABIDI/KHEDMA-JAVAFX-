@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="anch" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MetierController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="371.0" layoutY="452.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <AnchorPane prefHeight="720.0" prefWidth="319.0" style="-fx-background-color: #0077B6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="146.0" fitWidth="260.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/logo%205edma%20tr.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutY="166.0" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Métiers" textFill="WHITE">
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ffffff33" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="204.0" onAction="#redirectToSousMetier" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Sous métiers" textFill="WHITE">
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ffffff33" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
+         </children></AnchorPane>
+      <TableView fx:id="table" layoutX="647.0" layoutY="130.0" onMouseClicked="#getSelected" prefHeight="469.0" prefWidth="585.0" AnchorPane.bottomAnchor="121.0" AnchorPane.leftAnchor="647.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="130.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="92.4285888671875" text="ID" visible="false" />
+          <TableColumn fx:id="col_nom" prefWidth="178.7142333984375" text="NOM" />
+            <TableColumn fx:id="col_type" prefWidth="213.571533203125" text="TYPE" />
+            <TableColumn fx:id="col_description" prefWidth="128.28564453125" resizable="false" text="DESCRIPTION" />
+            <TableColumn fx:id="col_image" prefWidth="75.0" text="IMAGE" visible="false" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txt_nom" layoutX="367.0" layoutY="207.0" prefHeight="45.0" prefWidth="223.0" promptText="Nom">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txt_type" layoutX="367.0" layoutY="287.0" prefHeight="45.0" prefWidth="223.0" promptText="Type" />
+      <TextField fx:id="txt_description" layoutX="367.0" layoutY="368.0" prefHeight="45.0" prefWidth="223.0" promptText="Description" />
+      <TextField fx:id="txt_id" layoutX="367.0" layoutY="159.0" opacity="0.0" visible="false" />
+      <Button layoutX="1080.0" layoutY="643.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE" AnchorPane.bottomAnchor="32.0" AnchorPane.rightAnchor="94.0">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="684.0" layoutY="643.0" mnemonicParsing="false" onAction="#add_metier" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #0096C7;" text="Ajouter" textFill="WHITE" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="684.0">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="887.0" layoutY="643.0" mnemonicParsing="false" onAction="#edit" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: orange;" text="Modifier" textFill="WHITE" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="887.0" AnchorPane.rightAnchor="287.0">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="367.0" layoutY="187.0" text="Nom" textFill="#0077b6">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="367.0" layoutY="268.0" text="Type" textFill="#0077b6">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="367.0" layoutY="349.0" text="Description" textFill="#0077b6">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
+      <Text fill="#0077b6" layoutX="651.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Liste des métiers" wrappingWidth="277.56536865234375">
+         <font>
+            <Font name="Arial Nova Cond Bold" size="39.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="image_view" fitHeight="150.0" fitWidth="200.0" layoutX="371.0" layoutY="452.0" pickOnBounds="true" />
+      <Label layoutX="370.0" layoutY="432.0" text="Image" textFill="#0077b6">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="insert_image" layoutX="414.0" layoutY="643.0" onAction="#insertImage" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: green;" text="Insérer" textFill="WHITE">
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ffffff32" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="filr_path" layoutX="367.0" layoutY="602.0" opacity="0.0" prefHeight="34.0" prefWidth="278.0" />
+   </children>
+</AnchorPane>
