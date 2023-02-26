@@ -27,7 +27,7 @@ public class FXMain extends Application {
         
         try {
             
-            Parent p = FXMLLoader.load(getClass().getResource("SousMetier.fxml"));
+            Parent p = FXMLLoader.load(getClass().getResource("Metier.fxml"));
             
             
             

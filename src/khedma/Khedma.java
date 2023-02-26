@@ -7,6 +7,7 @@ package khedma;
 
 import Entities.Metier;
 import Entities.SousMetier;
+
 import Services.ServiceMetier;
 import Services.ServiceSousMetier;
 import javafx.collections.ObservableList;
@@ -27,5 +28,6 @@ public class Khedma {
         System.out.println(sm1.afficherAllNamesExcept("manar"));
        // System.out.println(m.toString()); 
     }
+    
     
 }

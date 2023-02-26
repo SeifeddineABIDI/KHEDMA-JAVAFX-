@@ -1,2 +1,3 @@
-# C R U D
-# Added GUI for GestionMetier+GestionSousMetier
+# CRUD
+# Added GUI of GestionMetier+GestioonSousMetier
+# Added Advanced searching 

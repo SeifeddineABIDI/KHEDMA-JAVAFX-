@@ -10,6 +10,7 @@ import Entities.Metier;
 import Services.ServiceMetier;
 import Utils.MyDB;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
@@ -21,6 +22,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,15 +76,13 @@ public class MetierController implements Initializable {
     @FXML
     private TextField txt_description;
     @FXML
-    private Text lst;
-    @FXML
     private ImageView image_view;
 
-    @FXML
-    private JFXButton insert_image;
 
     @FXML
     private Label filr_path;
+    @FXML
+    private JFXTextField txt_keyword;
 
     int index= -1;
     Connection conn=null;
@@ -89,6 +90,8 @@ public class MetierController implements Initializable {
     PreparedStatement pst = null;
     
     ServiceMetier sm;
+    @FXML
+    private JFXButton insert_image;
     /**
      * Initializes the controller class.
      * 
@@ -105,6 +108,7 @@ public class MetierController implements Initializable {
     String nom_metier;
     int m;
     
+    @FXML
     public void add_metier(){
         conn=MyDB.getInstance().getCnx();
        ServiceMetier sm =new ServiceMetier();
@@ -139,6 +143,7 @@ public class MetierController implements Initializable {
         }
     }
        
+    @FXML
     public void getSelected(){
         ServiceMetier sm = new ServiceMetier();
         index = table.getSelectionModel().getSelectedIndex();
@@ -155,6 +160,7 @@ public class MetierController implements Initializable {
             image_view.setImage(image1);
             
     }
+    @FXML
     public void edit(){
         verif=false;
          ServiceMetier sm =new ServiceMetier();
@@ -190,6 +196,7 @@ public class MetierController implements Initializable {
 
         } 
     }
+    @FXML
     public void supprimer(){
         try {
             conn=MyDB.getInstance().getCnx();
@@ -214,6 +221,7 @@ public class MetierController implements Initializable {
     }
     public void updateTable(){
         ServiceMetier sm = new ServiceMetier();
+        
         List<Metier> metiers = sm.afficher();
         ObservableList<Metier> listM=FXCollections.observableArrayList(metiers);
        col_id.setCellValueFactory(new PropertyValueFactory<Metier,Integer>("id"));
@@ -223,6 +231,21 @@ public class MetierController implements Initializable {
         col_image.setCellValueFactory(new PropertyValueFactory<Metier,String>("image"));
         listM=sm.afficherData();
         table.setItems(listM);
+        FilteredList<Metier> filteredData= new FilteredList<>(listM,b->true);
+        txt_keyword.textProperty().addListener((observable,oldvalue,newvalue)->{
+            filteredData.setPredicate( metier ->{
+                if(newvalue.isEmpty() || newvalue == null){return true; }
+                String search = newvalue.toLowerCase();
+                if(metier.getNom().toLowerCase().indexOf(search) != -1){
+                    return true;
+                } else if(metier.getType().toLowerCase().indexOf(search) != -1)  {return true;}
+                else if(metier.getDescription().toLowerCase().indexOf(search) != -1)  {return true;}
+                return false;
+            });
+    });
+        SortedList<Metier> sortedData= new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(table.comparatorProperty());
+        table.setItems(sortedData);
     }
 @FXML
 public void redirectToSousMetier(ActionEvent event) throws Exception {              
@@ -241,7 +264,7 @@ public void redirectToSousMetier(ActionEvent event) throws Exception {
         e.printStackTrace();
     }
 }
-     @FXML
+    @FXML
     private void insertImage(ActionEvent event) {
          FileChooser open = new FileChooser();
         
