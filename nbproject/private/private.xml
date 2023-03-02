@@ -3,8 +3,43 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Downloads/Workshop3A24%20(1)/Workshop3A24/src/workshop3a24/NewFXMain.java</file>
-            <file>file:/D:/Downloads/Workshop3A24%20(1)/Workshop3A24/src/workshop3a24/GUI/Dashboard.fxml</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/FrontFreelancerController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/ProjetClient.fxml</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/Tache.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/MetierController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/ShowtasksClientController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/FrontFreelancer.fxml</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/CurrentProjectData.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/SousMetier.fxml</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/SousMetier.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/ShowtasksClient.fxml</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/ProjectCardFreelancer.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/ProjetFreelancer.fxml</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/ProjetFreelancerController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Services/ServiceTache.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/Showtasks.fxml</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/FrontClientController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/Metier.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Services/ServiceMetier.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/Scrolltest.fxml</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/workshop3a24/GUI/ShowtasksController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Utils/MyDB.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/User.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/CurrentUserId.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/ProjetClientController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/style.css</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/FXMain.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Services/ServiceProjet.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/GHAPI.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/Projet.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/ShowtasksController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/SousMetierController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Entities/ProjectCard.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Services/ServiceSousMetier.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/Addtask.fxml</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/AddtaskController.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/Services/IServices.java</file>
+            <file>file:/D:/Downloads/LEGENDS-PIDEV-seif/LEGENDS-PIDEV-seif/src/GUI/FrontAdminController.java</file>
         </group>
     </open-files>
 </project-private>
