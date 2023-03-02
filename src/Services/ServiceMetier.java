@@ -97,6 +97,7 @@ public class ServiceMetier implements IServices<Metier>{
         }
         return metiers;
     }
+    
        public int getIdByNom(String n){
            int m =0;
             try {

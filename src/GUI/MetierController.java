@@ -11,7 +11,14 @@ import Services.ServiceMetier;
 import Utils.MyDB;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,10 +27,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
+import java.util.stream.Collectors;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,6 +92,8 @@ public class MetierController implements Initializable {
     @FXML
     private JFXTextField txt_keyword;
 
+    @FXML
+    private JFXButton export_button;
     int index= -1;
     Connection conn=null;
     ResultSet rs=null;
@@ -232,7 +242,7 @@ public class MetierController implements Initializable {
         listM=sm.afficherData();
         table.setItems(listM);
         FilteredList<Metier> filteredData= new FilteredList<>(listM,b->true);
-        txt_keyword.textProperty().addListener((observable,oldvalue,newvalue)->{
+       /* txt_keyword.textProperty().addListener((observable,oldvalue,newvalue)->{
             filteredData.setPredicate( metier ->{
                 if(newvalue.isEmpty() || newvalue == null){return true; }
                 String search = newvalue.toLowerCase();
@@ -245,10 +255,16 @@ public class MetierController implements Initializable {
     });
         SortedList<Metier> sortedData= new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(table.comparatorProperty());
-        table.setItems(sortedData);
+        table.setItems(sortedData);*/
+       
+       ObservableList<Metier> newdata = listM.stream().filter(n -> n.getNom().toLowerCase().contains(txt_keyword.getText().toLowerCase())
+      || n.getType().toLowerCase().contains(txt_keyword.getText().toLowerCase())
+      || n.getDescription().toLowerCase().contains(txt_keyword.getText().toLowerCase()))
+       .collect(Collectors.toCollection(FXCollections::observableArrayList));
+      table.setItems(newdata);
     }
 @FXML
-public void redirectToSousMetier(ActionEvent event) throws Exception {              
+private void redirectToSousMetier(ActionEvent event) throws Exception {              
     try {
                   final Node source = (Node) event.getSource();
 
@@ -290,12 +306,33 @@ public void redirectToSousMetier(ActionEvent event) throws Exception {
             
         }
     }
+public void writeExcel() throws Exception {
+    
+    PrintWriter writer = new PrintWriter( new OutputStreamWriter(new FileOutputStream("C:\\Users\\Safe\\Desktop\\Metier.csv"), "UTF-8"));
+
+     ServiceMetier sm = new ServiceMetier();
+        
+        List<Metier> metiers = sm.afficher();
+       writer.write("Nom,Type,Description\n");
+               for (Metier obj : metiers) {
+                   
+            writer.write(obj.getNom().toString());
+            writer.write(",");
+            writer.write(obj.getType().toString());
+            writer.write(",");
+            writer.write(obj.getDescription().toString());
+            writer.write("\n");
+
+               }
+               writer.flush();
+               writer.close();
+}
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         col_nom.prefWidthProperty().bind(table.widthProperty().divide(3)); // w * 1/4
         col_type.prefWidthProperty().bind(table.widthProperty().divide(3)); // w * 1/2
-        col_description.prefWidthProperty().bind(table.widthProperty().divide(3.03)); // w * 1/4
+        col_description.prefWidthProperty().bind(table.widthProperty().divide(3.04)); // w * 1/4
         updateTable();
     }    
      }

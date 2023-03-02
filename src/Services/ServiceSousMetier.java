@@ -223,4 +223,30 @@ public class ServiceSousMetier implements IServices<SousMetier> {
         }
         return metiers;
     }
+         public int countSousMetiersByMetier(String str) {
+             int m = 0;
+             ServiceMetier sm = new ServiceMetier();
+             int id = sm.getIdByNom(str);
+        List<String> metiers = new ArrayList();
+        try {
+            String qry ="SELECT count(*) FROM `sous-metier` WHERE `archive`='"+0+"' AND `m-id`='"+id+"'  ";
+            cnx = MyDB.getInstance().getCnx();
+            Statement stm = cnx.createStatement();
+            ResultSet rs = stm.executeQuery(qry);
+            while(rs.next()){
+              
+                
+                m=(rs.getInt(1));
+                
+               
+            }
+              
+            return m;
+            
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return m;
+    }
 }

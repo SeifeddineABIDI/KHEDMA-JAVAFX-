@@ -20,8 +20,6 @@ public class FrontClientController {
     @FXML
     private AnchorPane anch;
     @FXML
-    private TextField txt_id;
-    @FXML
     private JFXButton ButtonCompte;
     @FXML
     private JFXButton ButtonProjet;

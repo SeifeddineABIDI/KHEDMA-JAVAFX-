@@ -5,12 +5,7 @@
  */
 package khedma;
 
-import Entities.Metier;
-import Entities.SousMetier;
-
-import Services.ServiceMetier;
 import Services.ServiceSousMetier;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -24,10 +19,8 @@ public class Khedma {
             ServiceSousMetier sm1 = new ServiceSousMetier();
         //ServiceMetier sm1 = new ServiceMetier();
        
-        System.out.println(sm1.afficherAllNames());
-        System.out.println(sm1.afficherAllNamesExcept("manar"));
-       // System.out.println(m.toString()); 
-    }
-    
+       // System.out.println(sm1.afficherAllNames());
+      //  System.out.println(sm1.afficherAllNamesExcept("manar"));
+        System.out.println(sm1.countSousMetiersByMetier("Entretien")); }
     
 }

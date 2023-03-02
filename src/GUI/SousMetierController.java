@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Entities.Metier;
 import Entities.SousMetier;
 import Services.ServiceMetier;
 import Services.ServiceSousMetier;
@@ -21,8 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.*;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,6 +74,9 @@ public class SousMetierController implements Initializable {
     private ComboBox<String> combo_metier;
     @FXML
     private Text msg;
+        @FXML
+    private JFXTextField txt_field;
+
 
     int index= -1;
     Connection conn=null;
@@ -236,7 +243,7 @@ public void redirectToMetier(ActionEvent event) throws Exception {
     }
 }
     public void comboBoxList(){
-        ServiceMetier serviceProjet = new ServiceMetier();
+          ServiceMetier serviceProjet = new ServiceMetier();
          List<String> metiers = serviceProjet.afficherAllNames();
         ObservableList<String> observableMetiers = FXCollections.observableArrayList(metiers);
         combo_metier.setItems(observableMetiers);
@@ -251,17 +258,30 @@ public void redirectToMetier(ActionEvent event) throws Exception {
        col_id.setCellValueFactory(new PropertyValueFactory<SousMetier,Integer>("id"));
         col_libelle.setCellValueFactory(new PropertyValueFactory<SousMetier,String>("libelle"));
         col_domaine.setCellValueFactory(new PropertyValueFactory<SousMetier,String>("domaine"));
-        
-        //listM=sm.afficherData();
-         
         table.setItems(listM);
+        FilteredList<SousMetier> filteredData= new FilteredList<>(listM,b->true);
+  txt_field.textProperty().addListener((observable,oldvalue,newvalue)->{
+            filteredData.setPredicate( metier ->{
+                if(newvalue.isEmpty() || newvalue == null){return true; }
+                String search = newvalue.toLowerCase();
+                if(metier.getLibelle().toLowerCase().indexOf(search) != -1){
+                    return true;
+                } else if(metier.getDomaine().toLowerCase().indexOf(search) != -1)  {return true;}
+          
+                return false;
+            });
+    });
+        SortedList<SousMetier> sortedData= new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(table.comparatorProperty());
+        table.setItems(sortedData);
+        
     }
  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         comboBoxList();
                 col_libelle.prefWidthProperty().bind(table.widthProperty().divide(2)); // w * 1/2
-                col_domaine.prefWidthProperty().bind(table.widthProperty().divide(2)); // w * 1/4
+                col_domaine.prefWidthProperty().bind(table.widthProperty().divide(2.02)); // w * 1/4
         
     }    
     

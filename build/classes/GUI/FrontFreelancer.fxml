@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
@@ -99,7 +99,10 @@
             </JFXButton>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
          </children></AnchorPane>
-      <TextField fx:id="txt_id" layoutX="367.0" layoutY="159.0" opacity="0.0" visible="false" />
-      <Label layoutX="471.0" layoutY="250.0" prefHeight="274.0" prefWidth="590.0" text="FREELANCER HOME " />
+      <ScrollPane fx:id="scroll_pane" layoutX="343.0" layoutY="184.0" prefHeight="518.0" prefWidth="911.0">
+         <content>
+            <VBox fx:id="vbox" prefHeight="513.0" prefWidth="899.0" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
