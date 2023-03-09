@@ -163,7 +163,7 @@ public class SousMetierController implements Initializable {
             UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
             UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
           "Arial", Font.BOLD, 30)));
-            JOptionPane.showMessageDialog(null, "User Added successfully", "Succès!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sous metier ajouté avec succés", "Succès!", JOptionPane.INFORMATION_MESSAGE);
 
             clearTextField();
             updateTable();
@@ -182,6 +182,9 @@ public class SousMetierController implements Initializable {
        verif=lst.contains(nom_sousmetier);
         System.out.println(verif);
        if (verif==true){
+                      UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
             JOptionPane.showMessageDialog(null, "Nom doit etre unique");
             clearTextField();
             return;
@@ -196,12 +199,18 @@ public class SousMetierController implements Initializable {
             String sql="UPDATE `sous-metier` SET  `domaine`='" + value3 + "' WHERE `id`='" + value1+ "'";
             pst=conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Updated Successfully!");
+            UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Sous metier modifié avec succés", "Succès!", JOptionPane.INFORMATION_MESSAGE);
             clearTextField();
             updateTable();
 
                         
         } catch (Exception e) {
+                        UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
                         JOptionPane.showMessageDialog(null, e.getMessage());
 
         } 
@@ -213,7 +222,10 @@ public class SousMetierController implements Initializable {
             String sql="UPDATE `sous-metier` SET `archive`='" + 1 + "' WHERE `id`='" + value1+ "'";
             pst=conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Sous_Métier supprimé");
+                        UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Sous metier supprimé avec succés", "Succès!", JOptionPane.INFORMATION_MESSAGE);
                         clearTextField();
 
             updateTable();

@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="anch" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontFreelancerController">
@@ -104,5 +105,6 @@
             <VBox fx:id="vbox" prefHeight="513.0" prefWidth="899.0" />
          </content>
       </ScrollPane>
+      <Circle fx:id="UserLogo" fill="#1fdeff" layoutX="1192.0" layoutY="64.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>

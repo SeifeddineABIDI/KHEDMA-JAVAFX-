@@ -7,6 +7,7 @@ package Services;
 
 import Entities.Metier;
 import Entities.SousMetier;
+import Entities.freelancer;
 import Services.ServiceMetier;
 import Utils.MyDB;
 import java.sql.Connection;
@@ -95,6 +96,98 @@ public class ServiceSousMetier implements IServices<SousMetier> {
             System.out.println(ex.getMessage());
         }
         return ls;
+    }
+       public List<SousMetier> afficherSmByIdMetier(int val) {
+        List<SousMetier> ls = new ArrayList<>();
+        try {
+            String qry ="SELECT id,libelle,domaine FROM `sous-metier` WHERE `m-id`='"+val+"'AND `archive`='"+0+"'  ";
+            
+            cnx = MyDB.getInstance().getCnx();
+            Statement stm = cnx.createStatement();
+            ResultSet rs = stm.executeQuery(qry);
+            
+    
+            while(rs.next()){     
+                SousMetier sm = new SousMetier();
+                sm.setId(rs.getInt(1));
+                sm.setLibelle(rs.getString(2));
+                sm.setDomaine(rs.getString(3));
+                ls.add(sm);
+            }
+            return ls ;
+            
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return ls;
+    }
+            public int CountSmByIdm(int val) {
+        int sum=0;
+        try {
+            String qry ="SELECT count(*) FROM `sous-metier` WHERE `m-id`='"+val+"'AND `archive`='"+0+"'  ";
+            
+            cnx = MyDB.getInstance().getCnx();
+            Statement stm = cnx.createStatement();
+            ResultSet rs = stm.executeQuery(qry);
+            
+            while(rs.next()){
+            sum=rs.getInt(1);  
+               
+            }
+           
+            return sum ;
+            
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return sum;
+    }
+        public int getIdByNom(String a) {
+        int sum=0;
+        try {
+            String qry ="SELECT id FROM `sous-metier` WHERE libelle='"+a+"'";
+            
+            cnx = MyDB.getInstance().getCnx();
+            Statement stm = cnx.createStatement();
+            System.out.println(a);
+            ResultSet rs = stm.executeQuery(qry);
+            
+            while(rs.next()){
+            sum=rs.getInt(1);  
+               
+            }
+           
+            return sum ;
+            
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return sum;
+    }
+                        public int CountSmByNom(String val) {
+        int sum=0;
+        try {
+            String qry ="SELECT count(id_user) FROM `user_sousmetier` WHERE `id_sm`='"+getIdByNom(val)+"' ";
+            
+            cnx = MyDB.getInstance().getCnx();
+            Statement stm = cnx.createStatement();
+            ResultSet rs = stm.executeQuery(qry);
+            
+            while(rs.next()){
+            sum=rs.getInt(1);  
+               
+            }
+           
+            return sum ;
+            
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return sum;
     }
    @Override
     public List<SousMetier> afficher() {
@@ -249,4 +342,26 @@ public class ServiceSousMetier implements IServices<SousMetier> {
         }
         return m;
     }
+         int val;
+              public int countFreelancerBySousMetier(int sm) {
+        
+        try {
+            String qry = "SELECT count(id_user) FROM `user_sousmetier` WHERE `id_sm`='"+sm+"' ";
+            cnx = MyDB.getInstance().getCnx();
+            Statement stm = cnx.createStatement();
+            ResultSet rs = stm.executeQuery(qry);
+            while (rs.next()) {
+                freelancer p = new freelancer();
+                val=rs.getInt(1);
+                
+                
+            }
+            return val;
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return val;
+    }
+         
 }

@@ -99,7 +99,7 @@
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
          </children></AnchorPane>
       <TextField fx:id="txt_id" layoutX="367.0" layoutY="159.0" opacity="0.0" visible="false" />
-      <Label layoutX="471.0" layoutY="250.0" prefHeight="274.0" prefWidth="590.0" text="FREELANCER HOME " />
+      
    </children>
 </AnchorPane>
 

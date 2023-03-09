@@ -3,9 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/GUI/SousMetierController.java</file>
-            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/Services/ServiceSousMetier.java</file>
-            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/GUI/MetierController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/GUI/CardViewSousMetierUsers.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/GUI/BarCharts.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/GUI/SousMetierClientController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/GUI/CardViewSousMetier.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/Services/Servicefreelancer.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/GUI/SousMetierUsersController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/GUI/SousMetierController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/Services/ServiceSousMetier.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/khedma/Khedma.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/GUI/MetierController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/integration/LEGENDS-PIDEV/src/Services/ServiceUser.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,16 +5,11 @@
  */
 package GUI;
 
-import Entities.Metier;
-import Services.ServiceMetier;
+import Entities.SingleUser;
+import Entities.User;
 import com.jfoenix.controls.JFXButton;
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,15 +17,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 
-public class FrontFreelancerController implements Initializable  {
+public class FrontFreelancerController  implements Initializable {
 
     @FXML
     private AnchorPane anch;
@@ -54,12 +51,12 @@ public class FrontFreelancerController implements Initializable  {
     private JFXButton ButtonSignOut;
 
     @FXML
-    private TextField txt_id;
-    @FXML
     private ScrollPane scroll_pane;
-
     @FXML
     private VBox vbox;
+    @FXML
+    private Circle UserLogo;
+
     @FXML
     void redirectToAnnonce(ActionEvent event) {
 
@@ -67,16 +64,53 @@ public class FrontFreelancerController implements Initializable  {
 
     @FXML
     void redirecttoProjet(ActionEvent event) {
+    
+                  try {
+                  final Node source = (Node) event.getSource();
+
+          FXMLLoader fxmlLoader=null;
+      
+                 fxmlLoader = new FXMLLoader(getClass().getResource("ProjetFreelancer.fxml"));
+        
+    
+      // FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProjetClient.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
 
     }
 
     @FXML
     void redirecttocompte(ActionEvent event) {
+              try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("freelancerPanel.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
+        
 
     }
 
     @FXML
     void redirecttoevenement(ActionEvent event) {
+  
 
     }
 
@@ -94,7 +128,8 @@ public class FrontFreelancerController implements Initializable  {
              
             stage.show();
            
-    } catch(Exception e) {
+    } 
+          catch(Exception e) {
         e.printStackTrace();
     }
 
@@ -104,42 +139,24 @@ public class FrontFreelancerController implements Initializable  {
     void signout(ActionEvent event) {
 
     }
- @FXML
- private void getcard() throws IOException{
-    
-      ServiceMetier sm= new ServiceMetier();
-        List<String> list = new ArrayList<>();
-        list =sm.afficherAllNames();
-        for (String metier : list) {
-          
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("CardView.fxml"));
-    Node cardView = loader.load();
-            
-    
-    // Get references to the elements inside the CardView layout
-    Label card_nom = (Label) loader.getNamespace().get("card_nom");
-    Label card_type = (Label) loader.getNamespace().get("card_type");
-            System.out.println(metier);
-    // Set the content of the elements based on the data for this CardView
-    card_nom.setText(metier);
-   // card_type.setText(metier.getDescription());
-    
-    // Add the loaded CardView layout to the container in SceneBuilder
-    vbox.getChildren().add(cardView);
+/*public void loadData(){
+SingleUser hold = SingleUser.getInstance();
+          User u = hold.getUser(); 
+              Image img =new Image(u.getImage());
+                      UserLogo.setFill(new ImagePattern(img));
+
+
+    System.out.println(u.getImage());
 }
-
-// Set the VBox container as the content of the ScrollPane
-scroll_pane.setContent(vbox);
-
-    }
-     
- 
     @Override
-    public void initialize(URL location, ResourceBundle resources)  {
-        try {
-            getcard();
-        } catch (IOException ex) {
-            Logger.getLogger(FrontFreelancerController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void initialize(URL location, ResourceBundle resources) {
+loadData();
+    }*/
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
-}
+

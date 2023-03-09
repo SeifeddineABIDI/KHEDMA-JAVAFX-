@@ -59,7 +59,7 @@ public class MetierClientController implements Initializable {
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    private FlowPane flowPane;
+    public FlowPane flowPane;
 
     ServiceMetier sm = new ServiceMetier();
         
