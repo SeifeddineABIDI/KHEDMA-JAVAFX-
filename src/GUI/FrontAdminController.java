@@ -6,10 +6,18 @@
 package GUI;
 
 import com.jfoenix.controls.JFXButton;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -22,42 +30,85 @@ public class FrontAdminController {
 
     @FXML
     private TextField txt_id;
+    private void redirectToSousMetier(ActionEvent event) {
+          try {
+               Parent root=FXMLLoader.load(getClass().getResource("/GUI/Metier.fxml"));
+               Stage stage = new Stage(StageStyle.DECORATED);
+               stage.setTitle("khedma");
+               stage.setScene(new Scene(root));
+               stage.show();
+               closeStage();
+           } catch (IOException ex) {
+               Logger.getLogger(FrontAdminController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
+    }
+      
     @FXML
-    private JFXButton ButtonCompte;
-    @FXML
-    private JFXButton ButtonProjet;
-    @FXML
-    private JFXButton ButtonMetier;
-    @FXML
-    private JFXButton ButtonAnnonce;
-    @FXML
-    private JFXButton ButtonEvenement;
-    @FXML
-    private JFXButton ButtonSignOut;
-
-    @FXML
-    private void redirecttocompte(ActionEvent event) {
+    private void redirectToMetier(ActionEvent event) {
+          try {
+               Parent root=FXMLLoader.load(getClass().getResource("/GUI/Metier.fxml"));
+               Stage stage = new Stage(StageStyle.DECORATED);
+               stage.setTitle("khedma");
+               stage.setScene(new Scene(root));
+               stage.show();
+               closeStage();
+           } catch (IOException ex) {
+               Logger.getLogger(FrontAdminController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
+        
+        
     }
 
-    @FXML
-    private void redirecttoProjet(ActionEvent event) {
+  public void closeStage() {
+        ((Stage) anch.getScene().getWindow()).close();
     }
-
+  
     @FXML
-    private void redirecttometier(ActionEvent event) {
-    }
-
-    @FXML
-    private void redirectToAnnonce(ActionEvent event) {
-    }
-
-    @FXML
-    private void redirecttoevenement(ActionEvent event) {
+    private void handleUser(ActionEvent event) {
+           try {
+               Parent root=FXMLLoader.load(getClass().getResource("/GUI/AdminPanel.fxml"));
+               Stage stage = new Stage(StageStyle.DECORATED);
+               stage.setTitle("khedma");
+               stage.setScene(new Scene(root));
+               stage.show();
+               closeStage();
+           } catch (IOException ex) {
+               Logger.getLogger(FrontAdminController.class.getName()).log(Level.SEVERE, null, ex);
+           }
     }
 
     @FXML
     private void signout(ActionEvent event) {
+                      try {
+            Parent root=FXMLLoader.load(getClass().getResource("/GUI/login.fxml"));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("khedma");
+            stage.setScene(new Scene(root));
+            stage.show();
+             closeStage();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
+
+    @FXML
+    private void redirecttoevents(ActionEvent event) {
+         try {
+               Parent root=FXMLLoader.load(getClass().getResource("Evenement.fxml"));
+               Stage stage = new Stage(StageStyle.DECORATED);
+               stage.setTitle("khedma");
+               stage.setScene(new Scene(root));
+               stage.show();
+               closeStage();
+           } catch (IOException ex) {
+               Logger.getLogger(FrontAdminController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
+    }
+
 
     
     

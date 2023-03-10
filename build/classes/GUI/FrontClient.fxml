@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -99,7 +100,17 @@
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
          </children></AnchorPane>
       <TextField fx:id="txt_id" layoutX="367.0" layoutY="159.0" opacity="0.0" visible="false" />
-      <Label layoutX="471.0" layoutY="250.0" prefHeight="274.0" prefWidth="590.0" text="FREELANCER HOME " />
+      <ImageView fx:id="image_view" fitHeight="150.0" fitWidth="200.0" layoutX="1045.0" layoutY="25.0" pickOnBounds="true" />
+      <Label layoutX="367.0" layoutY="63.0" text="Bonjour">
+         <font>
+            <Font name="Arial" size="46.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_name" layoutX="536.0" layoutY="64.0" prefHeight="53.0" prefWidth="451.0">
+         <font>
+            <Font name="Arial Bold" size="46.0" />
+         </font>
+      </Label>
+      
    </children>
 </AnchorPane>
-

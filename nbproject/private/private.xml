@@ -3,9 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/GUI/SousMetierController.java</file>
-            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/Services/ServiceSousMetier.java</file>
-            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/khedma/src/GUI/MetierController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/FXMain.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/Evenement_Controller.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/mainf.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/MetierClientChartController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/AnnonceController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/inscriptionController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/MetierController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/EvenementClient.fxml</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/EvenementClientController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/Entities/GHAPI.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/ClientPanelController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/Evenement.fxml</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/EvenementFreelancerController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/FrontAdminController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/AnnonceClientController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/EvenementFreelancer.fxml</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/ProjetClientController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/LoginController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/AdminPanelController.java</file>
+            <file>file:/C:/Users/Safe/Documents/NetBeansProjects/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/MailSender.java</file>
         </group>
     </open-files>
 </project-private>

@@ -10,10 +10,12 @@ import Entities.SousMetier;
 import Services.ServiceMetier;
 import Services.ServiceSousMetier;
 import Utils.MyDB;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,6 +43,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.plaf.FontUIResource;
@@ -76,8 +79,20 @@ public class SousMetierController implements Initializable {
     private Text msg;
         @FXML
     private JFXTextField txt_field;
+     @FXML
+    private JFXButton ButtonCompte;
 
+    @FXML
+    private JFXButton ButtonProjet;
 
+    @FXML
+    private JFXButton ButtonAnnonce;
+
+    @FXML
+    private JFXButton ButtonEvenement;
+
+    @FXML
+    private JFXButton ButtonSignOut;
     int index= -1;
     Connection conn=null;
     ResultSet rs=null;
@@ -163,7 +178,7 @@ public class SousMetierController implements Initializable {
             UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
             UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
           "Arial", Font.BOLD, 30)));
-            JOptionPane.showMessageDialog(null, "User Added successfully", "Succès!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Sous metier ajouté avec succés", "Succès!", JOptionPane.INFORMATION_MESSAGE);
 
             clearTextField();
             updateTable();
@@ -182,6 +197,9 @@ public class SousMetierController implements Initializable {
        verif=lst.contains(nom_sousmetier);
         System.out.println(verif);
        if (verif==true){
+                      UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
             JOptionPane.showMessageDialog(null, "Nom doit etre unique");
             clearTextField();
             return;
@@ -196,12 +214,18 @@ public class SousMetierController implements Initializable {
             String sql="UPDATE `sous-metier` SET  `domaine`='" + value3 + "' WHERE `id`='" + value1+ "'";
             pst=conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Updated Successfully!");
+            UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Sous metier modifié avec succés", "Succès!", JOptionPane.INFORMATION_MESSAGE);
             clearTextField();
             updateTable();
 
                         
         } catch (Exception e) {
+                        UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
                         JOptionPane.showMessageDialog(null, e.getMessage());
 
         } 
@@ -213,7 +237,10 @@ public class SousMetierController implements Initializable {
             String sql="UPDATE `sous-metier` SET `archive`='" + 1 + "' WHERE `id`='" + value1+ "'";
             pst=conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Sous_Métier supprimé");
+                        UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Sous metier supprimé avec succés", "Succès!", JOptionPane.INFORMATION_MESSAGE);
                         clearTextField();
 
             updateTable();
@@ -283,6 +310,103 @@ public void redirectToMetier(ActionEvent event) throws Exception {
                 col_libelle.prefWidthProperty().bind(table.widthProperty().divide(2)); // w * 1/2
                 col_domaine.prefWidthProperty().bind(table.widthProperty().divide(2.02)); // w * 1/4
         
+    }
+ @FXML
+    void redirectToAnnonce(ActionEvent event) {
+
+    }
+
+    @FXML
+    void redirecttoProjet(ActionEvent event) {
+    
+                  try {
+                  final Node source = (Node) event.getSource();
+
+          FXMLLoader fxmlLoader=null;
+      
+                 fxmlLoader = new FXMLLoader(getClass().getResource("ProjetFreelancer.fxml"));
+        
+    
+      // FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProjetClient.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
+
+    }
+
+    @FXML
+    void redirecttocompte(ActionEvent event) {
+              try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminPanel.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
+        
+
+    }
+
+    @FXML
+    void redirecttoevenement(ActionEvent event) {
+  
+
+    }
+
+    @FXML
+    void redirecttometier(ActionEvent event) {
+        try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MetierClientChart.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
+    }
+
+    private Stage getStage() {
+        return (Stage) ButtonAnnonce.getScene().getWindow();
+    }
+ private void closeStage(ActionEvent event) {
+        getStage().close();
+    }
+    @FXML
+    void signout(ActionEvent event) {
+  try {       
+            Parent root=FXMLLoader.load(getClass().getResource("login.fxml"));
+             Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("5edma");
+             closeStage(event);
+            stage.setScene(new Scene(root));
+            stage.show();
+            
+              
+    }   catch (IOException ex) {
+           System.out.println("Err"+ex.getMessage());
+        }
     }    
     
 }

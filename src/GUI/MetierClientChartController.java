@@ -84,26 +84,122 @@ private void redirectToMetier(ActionEvent event) throws Exception {
 
     @FXML
     private void redirecttocompte(ActionEvent event) {
+         try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("clientPanel.fxml"));
+       
+             System.out.println("ZZZ");
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
     private void redirecttoProjet(ActionEvent event) {
+         try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProjetClient.fxml"));
+       
+             System.out.println("ZZZ");
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
     private void redirecttometier(ActionEvent event) {
+         try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MetierClientChart.fxml"));
+       
+             System.out.println("ZZZ");
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
     private void redirectToAnnonce(ActionEvent event) {
+                 try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Annonce.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
     private void redirecttoevenement(ActionEvent event) {
+                 try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EvenementClient.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
     private void signout(ActionEvent event) {
+         try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+       
+             System.out.println("ZZZ");
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
     }
     
 }
