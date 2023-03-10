@@ -26,7 +26,7 @@
                   <Image url="@../Images/logo%205edma%20tr.png" />
                </image>
             </ImageView>
-            <JFXButton layoutY="166.0" onAction="#redirectToMetier" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Metiers" textFill="WHITE">
+            <JFXButton layoutX="-5.0" layoutY="375.0" onAction="#redirectToMetier" prefHeight="35.0" prefWidth="336.0" style="-fx-background-color: #0096C7;" text="Metiers" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -39,11 +39,50 @@
                   </LinearGradient>
                </ripplerFill>
             </JFXButton>
-            <JFXButton layoutY="204.0" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Sous métiers" textFill="WHITE">
+            <JFXButton fx:id="ButtonProjet" layoutY="325.0" onAction="#redirecttocompte" prefHeight="35.0" prefWidth="329.0" style="-fx-background-color: #0096C7;" text="Users" textFill="WHITE">
                <ripplerFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
-                        <Stop color="#ffffff32" />
+                        <Stop color="#ffffff33" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="ButtonAnnonce" layoutX="-1.0" layoutY="418.0" onAction="#redirectToAnnonce" prefHeight="35.0" prefWidth="331.0" style="-fx-background-color: #0096C7;" text="Annonce" textFill="WHITE">
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ffffff33" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="ButtonEvenement" layoutY="468.0" onAction="#redirecttoevenement" prefHeight="35.0" prefWidth="329.0" style="-fx-background-color: #0096C7;" text="Evenements" textFill="WHITE">
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ffffff33" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="ButtonSignOut" layoutY="652.0" onAction="#signout" prefHeight="35.0" prefWidth="329.0" style="-fx-background-color: #0096C7;" text="Sign Out" textFill="WHITE">
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ffffff33" />
                         <Stop color="WHITE" offset="1.0" />
                      </stops>
                   </LinearGradient>
@@ -53,7 +92,7 @@
                </font>
             </JFXButton>
          </children></AnchorPane>
-      <TableView fx:id="table" layoutX="647.0" layoutY="130.0" onMouseClicked="#getSelected" prefHeight="469.0" prefWidth="585.0" AnchorPane.bottomAnchor="121.0" AnchorPane.leftAnchor="647.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="130.0">
+      <TableView fx:id="table" layoutX="581.0" layoutY="125.0" onMouseClicked="#getSelected" prefHeight="559.0" prefWidth="585.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="581.0" AnchorPane.rightAnchor="114.0" AnchorPane.topAnchor="125.0">
         <columns>
           <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" visible="false" />
           <TableColumn fx:id="col_libelle" prefWidth="75.0" text="LIBELLE" />
@@ -61,51 +100,51 @@
             <TableColumn fx:id="col_metier" prefWidth="75.0" text="METIER" visible="false" />
         </columns>
       </TableView>
-      <TextField fx:id="txt_libelle" layoutX="367.0" layoutY="287.0" prefHeight="45.0" prefWidth="223.0" promptText="Nom">
+      <TextField fx:id="txt_libelle" layoutX="340.0" layoutY="287.0" prefHeight="45.0" prefWidth="223.0" promptText="Nom">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txt_domaine" layoutX="367.0" layoutY="368.0" prefHeight="45.0" prefWidth="223.0" promptText="Type" />
+      <TextField fx:id="txt_domaine" layoutX="340.0" layoutY="368.0" prefHeight="45.0" prefWidth="223.0" promptText="Type" />
       <TextField fx:id="txt_id" disable="true" layoutX="377.0" layoutY="228.0" opacity="0.0" prefHeight="45.0" prefWidth="223.0" promptText="id" />
-      <Button layoutX="1080.0" layoutY="643.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE" AnchorPane.bottomAnchor="32.0" AnchorPane.rightAnchor="94.0">
+      <Button layoutX="1191.0" layoutY="511.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="53.0" prefWidth="61.0" style="-fx-background-color: red;" text="🗑" textFill="WHITE" AnchorPane.bottomAnchor="156.0" AnchorPane.rightAnchor="28.0">
          <font>
-            <Font name="Arial Bold" size="16.0" />
+            <Font name="Arial Bold" size="29.0" />
          </font>
       </Button>
-      <Button layoutX="684.0" layoutY="643.0" mnemonicParsing="false" onAction="#add_SousMetier" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #0096C7;" text="Ajouter" textFill="WHITE" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="684.0">
+      <Button layoutX="1191.0" layoutY="261.0" mnemonicParsing="false" onAction="#add_SousMetier" prefHeight="53.0" prefWidth="61.0" style="-fx-background-color: #0096C7;" text="➕" textFill="WHITE" AnchorPane.bottomAnchor="406.0" AnchorPane.rightAnchor="28.0">
          <font>
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="887.0" layoutY="643.0" mnemonicParsing="false" onAction="#edit_SousMetier" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: orange;" text="Modifier" textFill="WHITE" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="887.0" AnchorPane.rightAnchor="287.0">
+      <Button layoutX="1191.0" layoutY="383.0" mnemonicParsing="false" onAction="#edit_SousMetier" prefHeight="53.0" prefWidth="61.0" style="-fx-background-color: orange;" text="✏" textFill="WHITE" AnchorPane.bottomAnchor="284.0" AnchorPane.rightAnchor="28.0">
          <font>
-            <Font name="Arial Bold" size="17.0" />
+            <Font name="Arial Bold" size="25.0" />
          </font>
       </Button>
-      <Label layoutX="367.0" layoutY="268.0" text="Libelle" textFill="#0077b6">
+      <Label layoutX="340.0" layoutY="268.0" text="Libelle" textFill="#0077b6">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="367.0" layoutY="349.0" text="Domaine" textFill="#0077b6">
+      <Label layoutX="340.0" layoutY="349.0" text="Domaine" textFill="#0077b6">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="367.0" layoutY="187.0" text="Metier" textFill="#0077b6">
+      <Label layoutX="340.0" layoutY="187.0" text="Metier" textFill="#0077b6">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <ComboBox fx:id="combo_metier" layoutX="367.0" layoutY="207.0" onAction="#updateTable" prefHeight="45.0" prefWidth="223.0" />
+      <ComboBox fx:id="combo_metier" layoutX="340.0" layoutY="207.0" onAction="#updateTable" prefHeight="45.0" prefWidth="223.0" />
       <Text fx:id="msg" fill="RED" layoutX="377.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="222.99999237060547" />
       <Text fill="#0077b6" layoutX="575.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des sous métiers" wrappingWidth="395.279541015625">
          <font>
             <Font name="Arial Nova Cond Bold" size="39.0" />
          </font>
       </Text>
-      <HBox layoutX="648.0" layoutY="91.0" prefHeight="16.0" prefWidth="277.0">
+      <HBox layoutX="584.0" layoutY="84.0" prefHeight="35.0" prefWidth="260.0">
          <children>
             <JFXTextField fx:id="txt_field" prefHeight="25.0" prefWidth="249.0" promptText="Chercher :" />
             <ImageView fitHeight="25.0" fitWidth="19.0" opacity="0.34" pickOnBounds="true" preserveRatio="true">

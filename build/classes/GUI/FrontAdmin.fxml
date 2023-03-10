@@ -18,7 +18,7 @@
                   <Image url="@../Images/logo%205edma%20tr.png" />
                </image>
             </ImageView>
-            <JFXButton layoutY="593.0" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Compte" textFill="WHITE">
+            <JFXButton layoutY="363.0" onAction="#redirectToMetier" prefHeight="35.0" prefWidth="324.0" style="-fx-background-color: #0096C7;" text="Metier" textFill="WHITE">
                <ripplerFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -31,7 +31,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="319.0" onAction="#redirectToSousMetier" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Projet" textFill="WHITE">
+            <JFXButton layoutX="-2.0" layoutY="425.0" onAction="#redirecttoevents" prefHeight="35.0" prefWidth="324.0" style="-fx-background-color: #0096C7;" text="Evenements" textFill="WHITE">
                <ripplerFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -44,46 +44,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutY="363.0" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Metier" textFill="WHITE">
-               <ripplerFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#ffffff33" />
-                        <Stop color="WHITE" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </ripplerFill>
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutY="408.0" onAction="#redirectToSousMetier" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Annonce" textFill="WHITE">
-               <ripplerFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#ffffff33" />
-                        <Stop color="WHITE" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </ripplerFill>
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutY="458.0" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Evenements" textFill="WHITE">
-               <ripplerFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#ffffff33" />
-                        <Stop color="WHITE" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </ripplerFill>
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutY="642.0" onAction="#redirectToSousMetier" prefHeight="35.0" prefWidth="319.0" style="-fx-background-color: #0096C7;" text="Sign Out" textFill="WHITE">
+            <JFXButton layoutY="622.0" onAction="#signout" prefHeight="35.0" prefWidth="324.0" style="-fx-background-color: #0096C7;" text="Sign Out" textFill="WHITE">
                <ripplerFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -97,6 +58,19 @@
                </font>
             </JFXButton>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton layoutY="311.0" onAction="#handleUser" prefHeight="35.0" prefWidth="324.0" style="-fx-background-color: #0096C7;" text="Users" textFill="WHITE">
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ffffff33" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXButton>
          </children></AnchorPane>
       <TextField fx:id="txt_id" layoutX="367.0" layoutY="159.0" opacity="0.0" visible="false" />
    </children>

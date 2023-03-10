@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -104,5 +105,16 @@
             <VBox fx:id="vbox" prefHeight="513.0" prefWidth="899.0" />
          </content>
       </ScrollPane>
+      <ImageView fx:id="image_view" fitHeight="150.0" fitWidth="200.0" layoutX="1045.0" layoutY="20.0" pickOnBounds="true" style="-fx-border-raduis: 50;" />
+      <Label layoutX="343.0" layoutY="61.0" prefHeight="68.0" prefWidth="175.0" text="Bonjour" wrapText="true">
+         <font>
+            <Font name="Arial" size="46.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_name" layoutX="511.0" layoutY="64.0" prefHeight="68.0" prefWidth="385.0">
+         <font>
+            <Font name="Arial Bold" size="46.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

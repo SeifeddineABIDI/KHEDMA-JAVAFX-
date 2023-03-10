@@ -14,6 +14,10 @@ import java.sql.SQLException;
  * @author Safe
  */
 public class MyDB {
+
+    public static Object getInsatnce() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     final String URL ="jdbc:mysql://127.0.0.1:3306/khedma";
     final String USERNAME="root";
     final String PWD ="";
@@ -34,7 +38,11 @@ public class MyDB {
             instance = new MyDB();
         return instance ;
     }
-    public Connection getCnx(){
+ 
+      public Connection getCnx(){
         return cnx;
     }
+   
+      
+      
 }

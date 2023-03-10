@@ -11,10 +11,16 @@ import Services.ServiceMetier;
 import Utils.MyDB;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -23,16 +29,20 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -48,9 +58,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.FontUIResource;
 
 /**
  * FXML Controller class
@@ -94,6 +109,9 @@ public class MetierController implements Initializable {
 
     @FXML
     private JFXButton export_button;
+    
+    @FXML
+    private Label img_label;
     int index= -1;
     Connection conn=null;
     ResultSet rs=null;
@@ -128,7 +146,10 @@ public class MetierController implements Initializable {
        verif=lst.contains(nom_metier);
         System.out.println(verif);
        if (verif==true){
-            JOptionPane.showMessageDialog(null, "Nom doit etre unique");
+                                    UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Nom doit etre unique", "Attention!", JOptionPane.INFORMATION_MESSAGE);
             clearTextField();
             return;
             
@@ -144,7 +165,10 @@ public class MetierController implements Initializable {
             pst.setString(4, txt_description.getText());
             pst.setString(5, filr_path.getText());
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Metier ajoutée avec succès!");
+                          UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Metier ajouté avec succés", "Succès!", JOptionPane.INFORMATION_MESSAGE);
             clearTextField();
             updateTable();
         } catch (Exception e) {
@@ -181,7 +205,10 @@ public class MetierController implements Initializable {
        verif=lst.contains(nom_metier);
         System.out.println(verif);
        if (verif==true){
-            JOptionPane.showMessageDialog(null, "Nom doit etre unique");
+                                    UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Nom doit etre unique", "Attention!", JOptionPane.INFORMATION_MESSAGE);
             clearTextField();
             return;
             
@@ -196,7 +223,10 @@ public class MetierController implements Initializable {
             String sql="UPDATE `metier` SET  `type`='" + value3 + "', `description`='" + value4 + "', `image`='" + value5 + "' WHERE `id`='" + value1+ "'";
             pst=conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Row Updated SUCCESSFULLY!");
+                                    UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Metier modifié avec succés", "Succés!", JOptionPane.INFORMATION_MESSAGE);
             clearTextField();
             updateTable();
 
@@ -217,7 +247,10 @@ public class MetierController implements Initializable {
             String sql="UPDATE `metier` SET `archive`='" + 1 + "' WHERE `id`='" + value1+ "'";
             pst=conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Métier supprimé");
+                                    UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Metier supprimé avec succés", "Succés!", JOptionPane.INFORMATION_MESSAGE);
                         clearTextField();
 
             updateTable();
@@ -281,7 +314,7 @@ private void redirectToSousMetier(ActionEvent event) throws Exception {
     }
 }
     @FXML
-    private void insertImage(ActionEvent event) {
+    private void insertImage(Event event) {
          FileChooser open = new FileChooser();
         
         Stage stage = (Stage)anch.getScene().getWindow();
@@ -297,7 +330,7 @@ private void redirectToSousMetier(ActionEvent event) throws Exception {
             filr_path.setText(path);
 
             Image image = new Image(file.toURI().toString(), 110, 110, false, true);
-            
+            img_label.setVisible(false);
             image_view.setImage(image);
             
         }else{
@@ -307,13 +340,22 @@ private void redirectToSousMetier(ActionEvent event) throws Exception {
         }
     }
 public void writeExcel() throws Exception {
+    Stage stage=null;
+      String directoryPath="";
+    DirectoryChooser directoryChooser = new DirectoryChooser();
+        File selectedDirectory = directoryChooser.showDialog(stage);
+        
+        if (selectedDirectory != null) {
+            directoryPath = selectedDirectory.getAbsolutePath();
+            System.out.println("Selected directory: " + directoryPath);
+        }
     
-    PrintWriter writer = new PrintWriter( new OutputStreamWriter(new FileOutputStream("C:\\Users\\Safe\\Desktop\\Metier.csv"), "UTF-8"));
-
+    PrintWriter writer = new PrintWriter( new OutputStreamWriter(new FileOutputStream(directoryPath+"/Metier.csv"), "UTF-8"));
+    
      ServiceMetier sm = new ServiceMetier();
         
-        List<Metier> metiers = sm.afficher();
-       writer.write("Nom,Type,Description\n");
+        List<Metier> metiers = sm.afficherArchive();
+       writer.write("Nom,Type,Description,Image Path\n");
                for (Metier obj : metiers) {
                    
             writer.write(obj.getNom().toString());
@@ -321,11 +363,70 @@ public void writeExcel() throws Exception {
             writer.write(obj.getType().toString());
             writer.write(",");
             writer.write(obj.getDescription().toString());
+            writer.write(",");
+            writer.write(obj.getImage().toString());          
             writer.write("\n");
 
                }
                writer.flush();
                writer.close();
+}
+@FXML
+private void insertExcel() throws IOException, SQLException{
+conn=MyDB.getInstance().getCnx();
+ String sql="INSERT INTO metier (nom,type,description,image) VALUES (?,?,?,?) ;";
+ int batchSize=20;
+PreparedStatement pst ;
+        String filepath="C:/Users/Safe/Desktop/Metier.csv";
+        String filePath="";
+        FileChooser fileChooser = new FileChooser();
+        Stage stage = null;
+        File result = fileChooser.showOpenDialog(stage);
+        
+        if (result != null) {
+     
+            String fileName = result.getName();
+             filePath = result.getAbsolutePath();
+            System.out.println("Selected file: " + fileName);
+            System.out.println("File path: " + filePath);
+        }
+        try {
+             filepath=filePath;
+           pst = conn.prepareStatement(sql);
+            BufferedReader lineReader=new BufferedReader(new FileReader(filePath));
+                        String lineText=null;
+            int count=0;
+             while ((lineText=lineReader.readLine())!=null){
+                String[] data=lineText.split(",");
+                
+
+                pst = conn.prepareStatement(sql);
+                pst.setString(1, data[0]);
+                pst.setString(2, data[1]);
+                pst.setString(3, data[2]);
+                pst.setString(4, data[3]);
+                 pst.addBatch();
+              if(count%batchSize==0){
+                    pst.executeBatch();
+                }
+        } 
+            lineReader.close();
+            pst.executeBatch();
+
+                           UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+            UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+          "Arial", Font.BOLD, 30)));
+            JOptionPane.showMessageDialog(null, "Metier(s) insérés avec succés", "Succés!", JOptionPane.INFORMATION_MESSAGE);
+            updateTable();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        } catch (FileNotFoundException ex) {
+            System.err.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.err.println(ex.getMessage());
+        }
+            
+
 }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -335,4 +436,97 @@ public void writeExcel() throws Exception {
         col_description.prefWidthProperty().bind(table.widthProperty().divide(3.04)); // w * 1/4
         updateTable();
     }    
-     }
+      @FXML
+    private void redirecttocompte(ActionEvent event) {
+         try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminPanel.fxml"));
+       
+             System.out.println("ZZZ");
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
+    }
+
+    @FXML
+    private void redirecttoProjet(ActionEvent event) {
+         try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProjetClient.fxml"));
+       
+             System.out.println("ZZZ");
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
+    }
+
+    @FXML
+    private void redirecttometier(ActionEvent event) {
+         try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Metier.fxml"));
+       
+             System.out.println("ZZZ");
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
+    }
+
+    @FXML
+    private void redirectToAnnonce(ActionEvent event) {
+    }
+
+    @FXML
+    private void redirecttoevenement(ActionEvent event) {
+    }
+
+    @FXML
+    private void signout(ActionEvent event) {
+          try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+       
+             System.out.println("ZZZ");
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } 
+          catch(Exception e) {
+        e.printStackTrace();
+    }
+        
+    }
+    
+    }

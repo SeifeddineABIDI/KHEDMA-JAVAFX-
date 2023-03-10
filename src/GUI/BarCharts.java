@@ -38,7 +38,7 @@ public class BarCharts extends Pane {
         ServiceMetier sm = new ServiceMetier();
         ServiceSousMetier ssm =new ServiceSousMetier();
         List<String> names = new ArrayList<>();
-        names= sm.afficherAllNames();
+        names= ssm.afficherAllNames();
         // Add data to the chart
         XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         //series1.setName("Sous Metiers");
@@ -46,7 +46,7 @@ public class BarCharts extends Pane {
           System.out.println(names);
         for (String item:names){
             
-        series1.getData().add(new XYChart.Data<>(item, ssm.countSousMetiersByMetier(item)));
+        series1.getData().add(new XYChart.Data<>(item,ssm.countFreelancerBySousMetier(ssm.getIdByNom(item))));
           
         }
        // XYChart.Series<String, Number> series2 = new XYChart.Series<>();
@@ -60,9 +60,9 @@ public class BarCharts extends Pane {
         //barChart.getData().add(series2);
 
         // Set chart properties
-        barChart.setTitle("Nombre des Sous-Métiers par Métier");
-        xAxis.setLabel("Métiers");
-        yAxis.setLabel("Nombre de sous-metiers");
+        barChart.setTitle("Nombre d'utilisateurs par Sous-Métier");
+        xAxis.setLabel("Sous-Métiers");
+        yAxis.setLabel("Nombre d'utilisateurs");
                 // Create a scene and add the chart to it
                 
                 BorderPane borderPane = new BorderPane();

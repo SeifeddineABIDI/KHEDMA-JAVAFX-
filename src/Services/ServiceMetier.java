@@ -98,6 +98,31 @@ public class ServiceMetier implements IServices<Metier>{
         return metiers;
     }
     
+    public List<Metier> afficherArchive() {
+        List<Metier> metiers = new ArrayList();
+        try {
+            String qry ="SELECT * FROM `metier` WHERE `archive`='"+1+"'  ";
+            cnx = MyDB.getInstance().getCnx();
+            Statement stm = cnx.createStatement();
+            ResultSet rs = stm.executeQuery(qry);
+            while(rs.next()){
+                Metier m =new Metier();
+                m.setId(rs.getInt(1));
+                m.setNom(rs.getString("nom"));
+                m.setType(rs.getString(3));
+                m.setDescription(rs.getString("Description"));
+                m.setImage(rs.getString("image"));
+                metiers.add(m);
+            }
+            return metiers;
+            
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return metiers;
+    }
+    
        public int getIdByNom(String n){
            int m =0;
             try {
@@ -243,6 +268,30 @@ public class ServiceMetier implements IServices<Metier>{
         }
         return res;
     
+    }
+    
+
+public List<String> getAllMetierNames() {
+    List<String> MetierNames = new ArrayList<>();
+    try {
+        String query = "SELECT nom FROM metier";
+        Connection connection = MyDB.getInstance().getCnx();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        while (resultSet.next()) {
+            MetierNames.add(resultSet.getString("nom"));
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+     
+    return MetierNames;
+   
+}
+
+    @Override
+    public void modifierr(int id, Metier entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 
