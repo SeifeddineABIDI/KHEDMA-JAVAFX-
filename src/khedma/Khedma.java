@@ -21,6 +21,6 @@ public class Khedma {
        
        // System.out.println(sm1.afficherAllNames());
       //  System.out.println(sm1.afficherAllNamesExcept("manar"));
-        System.out.println(sm1.countSousMetiersByMetier("Entretien")); }
+        System.out.println(sm1.afficherSmByIdMetier(57)); }
     
 }

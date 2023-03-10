@@ -10,12 +10,27 @@ package GUI;
  * @author Safe
  */
 import Entities.Metier;
+import Entities.SousMetier;
+import Services.ServiceSousMetier;
+import com.jfoenix.controls.JFXButton;
 import java.text.SimpleDateFormat;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -27,16 +42,19 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
 
 public class CardView extends Pane {
       
       private static final int WIDTH = 450
               ;
-    private static final int HEIGHT = 250;
+    private static final int HEIGHT = 300;
     private static final String BACKGROUND_COLOR = "white";
     private static final String BORDER_COLOR = "#2596be";
     private static final String TEXT_COLOR = "#2596be";
@@ -44,7 +62,7 @@ public class CardView extends Pane {
     private static final String DATE_COLOR = "#2596be";
     private static final String TYPE_COLOR = "#2596be";
         private final Metier metier;
-
+public int idm;
 
 
     public CardView(Metier metier) {
@@ -110,15 +128,57 @@ descriptionLabel.setTranslateX(175);
         im.setFitWidth(90);
         
       
-        borderPane.setBottom(new Pane(titleLabel, paysLabel));
+        
       //  borderPane.setTop(new Pane(im));
+        ServiceSousMetier ssm=new ServiceSousMetier();
+        int sum = ssm.CountSmByIdm(metier.getId());
+        JFXButton button = new JFXButton(sum+" sous metiers");
+        button.setTranslateY(245);
+        button.setTranslateX(170);
+        button.setBackground(getBackground());
+        button.ripplerFillProperty().set(Color.web("#0077B6"));
+        button.setTextFill(Color.web("#0077B6"));
+        button.setPrefSize(100, 50);
+       button.setFont(Font.font("family", FontWeight.BOLD, 12));
+       borderPane.setBottom(new Pane(titleLabel, paysLabel,button));
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
 
-
+                myFunction(event);
+            }
+        });
+    
+        button.setButtonType(JFXButton.ButtonType.RAISED);
         getChildren().addAll(borderPane);
-       
+        getChildren().add(button);
+       idm =metier.getId();
     
     
     
     
+    }   
+    
+       public void myFunction(ActionEvent event) {
+        CurrentMetier cm =  new CurrentMetier();
+        cm.CurrentMetier_id=metier.getId();
+           System.out.println(cm.CurrentMetier_id);
+              
+    try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SousMetierClient.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } catch(Exception e) {
+        e.printStackTrace();
     }
+}
+           
+    
 }

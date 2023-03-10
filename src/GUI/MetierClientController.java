@@ -6,6 +6,7 @@
 package GUI;
 
 import Entities.Metier;
+import Entities.SingleUser;
 import Services.ServiceMetier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
@@ -59,7 +60,7 @@ public class MetierClientController implements Initializable {
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    private FlowPane flowPane;
+    public FlowPane flowPane;
 
     ServiceMetier sm = new ServiceMetier();
         
@@ -69,10 +70,38 @@ public class MetierClientController implements Initializable {
         
     @FXML
     private void redirecttocompte(ActionEvent event) {
+          try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ClientPanel.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
     private void redirecttoProjet(ActionEvent event) {
+ try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProjetClient.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
@@ -81,14 +110,58 @@ public class MetierClientController implements Initializable {
 
     @FXML
     private void redirectToAnnonce(ActionEvent event) {
+        try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Annonce.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
+        
+        
     }
 
     @FXML
     private void redirecttoevenement(ActionEvent event) {
+        try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EvenementClient.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
     private void signout(ActionEvent event) {
+              try {
+                  final Node source = (Node) event.getSource();
+
+         
+       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+           final Stage stage = (Stage) source.getScene().getWindow();
+            stage.setScene(new Scene(root));
+             
+            stage.show();
+           
+    } catch(Exception e) {
+        e.printStackTrace();
+    }
     }
         public void setFormations(List<Metier> metiers) {
         flowPane.getChildren().clear();

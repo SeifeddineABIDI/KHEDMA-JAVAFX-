@@ -5,6 +5,7 @@
  */
 package Services;
 
+import Entities.User;
 import java.util.List;
 
 /**
@@ -15,5 +16,8 @@ public interface IServices<T> {
     public void add(T t);
     public List <T> afficher();
     public void modifier(T t);
+     void modifierr(int id,T entity);
     public void supprimer(T t);
+     
+    
 }
